@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ランダム画像表示</title>
+</head>
+<body>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="アップロード">
+    </form>
+
+    <button onclick="location.reload();">ランダムに画像を表示</button>
+
+    {% if image %}
+    <img src="{{ url_for('static', filename='uploads/' + image) }}" alt="Random Image">
+    {% else %}
+    <p>画像がありません。</p>
+    {% endif %}
+</body>
+</html>
